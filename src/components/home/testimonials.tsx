@@ -1,4 +1,5 @@
 import { Quote } from "lucide-react";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const TESTIMONIALS = [
   {
@@ -26,35 +27,39 @@ export function Testimonials() {
     <section className="py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-sm font-semibold uppercase tracking-wider text-secondary mb-3">
-            Testimonios
-          </p>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground">
-            Lo que dicen nuestros clientes
-          </h2>
-        </div>
+        <ScrollReveal>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <p className="text-sm font-semibold uppercase tracking-wider text-secondary mb-3">
+              Testimonios
+            </p>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground">
+              Lo que dicen nuestros clientes
+            </h2>
+          </div>
+        </ScrollReveal>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {TESTIMONIALS.map((t, i) => (
-            <div
-              key={i}
-              className="relative rounded-2xl bg-surface border border-border p-8"
-            >
-              <Quote className="h-8 w-8 text-secondary/30 mb-4" />
-              <p className="text-muted leading-relaxed mb-6 italic">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <div className="border-t border-border pt-4">
-                <p className="font-semibold text-foreground text-sm">
-                  {t.author}
+        <ScrollReveal stagger>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {TESTIMONIALS.map((t, i) => (
+              <div
+                key={i}
+                className="reveal relative rounded-2xl bg-surface border border-border p-8"
+              >
+                <Quote className="h-8 w-8 text-secondary/30 mb-4" />
+                <p className="text-muted leading-relaxed mb-6 italic">
+                  &ldquo;{t.quote}&rdquo;
                 </p>
-                <p className="text-xs text-muted">{t.company}</p>
+                <div className="border-t border-border pt-4">
+                  <p className="font-semibold text-foreground text-sm">
+                    {t.author}
+                  </p>
+                  <p className="text-xs text-muted">{t.company}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
