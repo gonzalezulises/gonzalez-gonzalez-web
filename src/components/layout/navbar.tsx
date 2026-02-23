@@ -38,7 +38,11 @@ export function Navbar() {
       >
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link
+            href="/"
+            className="flex items-center gap-3 group"
+            style={!(scrolled || mobileOpen) ? { textShadow: "0 1px 4px rgba(0,0,0,0.5)" } : undefined}
+          >
             <div className="flex flex-col">
               <span className={cn(
                 "font-serif text-lg font-bold leading-tight transition-colors",
@@ -58,20 +62,23 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-1">
+          <div
+            className="hidden md:flex items-center gap-1"
+            style={!scrolled ? { textShadow: "0 1px 4px rgba(0,0,0,0.5)" } : undefined}
+          >
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative px-4 py-2 text-sm font-medium rounded-lg transition-all",
+                  "relative px-4 py-2 text-sm font-semibold rounded-lg transition-all",
                   scrolled
                     ? pathname === link.href
                       ? "text-primary bg-primary/[0.06]"
                       : "text-muted hover:text-primary hover:bg-primary/[0.04]"
                     : pathname === link.href
-                      ? "text-white bg-white/10"
-                      : "text-white/80 hover:text-white hover:bg-white/10"
+                      ? "text-white bg-white/15"
+                      : "text-white hover:text-white hover:bg-white/10"
                 )}
               >
                 {link.label}
@@ -86,11 +93,12 @@ export function Navbar() {
             <Link
               href="/contacto"
               className={cn(
-                "group ml-4 inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-medium transition-all",
+                "group ml-4 inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all",
                 scrolled
                   ? "bg-primary text-white hover:bg-primary-light hover:shadow-md hover:shadow-primary/20"
-                  : "bg-white/15 text-white backdrop-blur-sm border border-white/20 hover:bg-white/25"
+                  : "bg-white/20 text-white backdrop-blur-sm border border-white/30 hover:bg-white/30"
               )}
+              style={!scrolled ? { textShadow: "none" } : undefined}
             >
               Contáctenos
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />

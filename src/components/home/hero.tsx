@@ -20,6 +20,9 @@ export function Hero() {
       {/* Dark overlay with brand gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary-light/85 to-secondary/80" />
 
+      {/* Top scrim for navbar readability */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent z-[1]" />
+
       {/* Floating accent orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-secondary/20 blur-3xl animate-float" />
