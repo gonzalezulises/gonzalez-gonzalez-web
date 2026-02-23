@@ -31,7 +31,7 @@ export function Navbar() {
         aria-label="Navegación principal"
         className={cn(
           "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 transition-all duration-300 rounded-none sm:rounded-2xl",
-          scrolled
+          scrolled || mobileOpen
             ? "glass shadow-lg shadow-primary/[0.04] sm:mx-4 lg:mx-auto"
             : "bg-transparent"
         )}
@@ -42,7 +42,7 @@ export function Navbar() {
             <div className="flex flex-col">
               <span className={cn(
                 "font-serif text-lg font-bold leading-tight transition-colors",
-                scrolled
+                scrolled || mobileOpen
                   ? "text-primary group-hover:text-primary-light"
                   : "text-white group-hover:text-white/80"
               )}>
@@ -50,7 +50,7 @@ export function Navbar() {
               </span>
               <span className={cn(
                 "text-[10px] tracking-[0.2em] uppercase transition-colors",
-                scrolled ? "text-secondary/70" : "text-white/60"
+                scrolled || mobileOpen ? "text-secondary/70" : "text-white/60"
               )}>
                 {BUSINESS.tagline}
               </span>
@@ -102,7 +102,7 @@ export function Navbar() {
             onClick={() => setMobileOpen(!mobileOpen)}
             className={cn(
               "md:hidden p-2 rounded-lg transition-colors",
-              scrolled
+              scrolled || mobileOpen
                 ? "text-foreground hover:bg-primary/5"
                 : "text-white hover:bg-white/10"
             )}
