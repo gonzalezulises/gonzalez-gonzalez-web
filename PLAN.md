@@ -59,25 +59,52 @@
 
 ## 3. Diseño y Branding
 
-### 3.1 Paleta de Colores
-| Rol         | Color       | Uso                              |
-|-------------|-------------|----------------------------------|
-| Primary     | `#1B365D`   | Azul marino - Confianza          |
-| Secondary   | `#C8A951`   | Dorado - Profesionalismo/Premium |
-| Accent      | `#2563EB`   | Azul brillante - CTAs/Links      |
-| Background  | `#F8FAFC`   | Gris muy claro - Fondos          |
-| Surface     | `#FFFFFF`   | Blanco - Cards                   |
-| Text        | `#1E293B`   | Gris oscuro - Texto principal    |
-| Muted       | `#64748B`   | Gris medio - Texto secundario    |
+### 3.1 Paleta de Colores (alineada al logo)
+| Rol            | Color       | Uso                                        |
+|----------------|-------------|--------------------------------------------|
+| Primary        | `#4E2B15`   | Marrón oscuro - Arco del logo              |
+| Primary Light  | `#6B3D20`   | Marrón medio - Hover states                |
+| Secondary      | `#8B5A2C`   | Marrón cobrizo - Cuerpo de la G del logo   |
+| Secondary Light| `#A67C52`   | Cobrizo claro - Acentos suaves             |
+| Accent         | `#B8860B`   | Dorado oscuro - CTAs y enlaces destacados  |
+| Background     | `#FBF9F7`   | Crema muy sutil - Fondo general            |
+| Surface        | `#FFFFFF`   | Blanco - Cards y contenedores              |
+| Text           | `#1E1E1E`   | Negro carbón - Texto principal (del logo)  |
+| Muted          | `#6B7280`   | Gris medio - Texto secundario              |
+| Border         | `#E8E0D8`   | Beige - Bordes y separadores               |
 
 ### 3.2 Tipografía
-- **Headings:** Inter (bold/semibold)
-- **Body:** Inter (regular/medium)
-- **Alternativa premium:** Playfair Display para títulos principales
+- **Headings:** Playfair Display (serif, como el logo) - bold/semibold
+- **Body:** Inter (sans-serif) - regular/medium
+- Combinación serif + sans que refleja la elegancia del logotipo
 
 ### 3.3 Iconografía
 - Lucide React (consistente con shadcn/ui)
 - Estilo: outlined, 24px base
+
+---
+
+## 3.5 Información del Negocio
+
+**Razón Social:** González & González Contadores & Auditores
+**RUC:** 1-30-642 DV 84
+**Ubicación:** Bethania, Miraflores, Calle Ottawa, PH Pasarela, Ciudad de Panamá, Panamá
+
+**Clientes actuales (referencia):**
+1. South Cargo Corp, S.A.
+2. Prozess Group, S.A.
+3. Constructora Colpan, S.A.
+4. Paz & Paz Consultores
+5. Canora Proyects, S.A.
+6. Play & Party, S.A.
+7. Agro & Food Integrity (AFISA)
+8. Bikain Net Corp, S.A.
+9. Powertec Technologies, S.A.
+10. Taller de Mecánica Rubén Darío
+11. Talleres Rincón
+12. Centro Estimularte
+
+**Referencia de honorarios:** Basados en la Resolución No. 05-2025 de la Junta Técnica de Contabilidad (Tabla de Referencia de Honorarios Mínimos para CPA).
 
 ---
 
