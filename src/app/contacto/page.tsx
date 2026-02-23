@@ -6,7 +6,16 @@ import { ContactForm } from "@/components/contacto/contact-form";
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Contáctenos para servicios de contabilidad, auditoría y asesoría fiscal en Panamá. Bethania, Miraflores, Ciudad de Panamá.",
+    "Contáctenos para servicios de contabilidad, auditoría y asesoría fiscal en Panamá. Bethania, Miraflores, Ciudad de Panamá. WhatsApp +507 6288-8162.",
+  alternates: { canonical: "https://gonzalez-gonzalez-web.vercel.app/contacto" },
+  keywords: ["contacto contadores", "teléfono", "WhatsApp", "email", "Bethania", "Miraflores", "cita contable"],
+  openGraph: {
+    title: "Contacto | González & González Contadores & Auditores",
+    description: "Contáctenos para una consulta. Calle Ottawa, PH Pasarela, Miraflores, Bethania. WhatsApp +507 6288-8162.",
+    url: "https://gonzalez-gonzalez-web.vercel.app/contacto",
+    type: "website",
+    locale: "es_PA",
+  },
 };
 
 const CONTACT_INFO = [

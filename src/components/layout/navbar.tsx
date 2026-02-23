@@ -28,6 +28,7 @@ export function Navbar() {
       )}
     >
       <nav
+        aria-label="Navegación principal"
         className={cn(
           "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 transition-all duration-300 rounded-none sm:rounded-2xl",
           scrolled
@@ -80,7 +81,9 @@ export function Navbar() {
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 rounded-lg text-foreground hover:bg-primary/5 transition-colors"
-            aria-label="Abrir menú"
+            aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -88,6 +91,9 @@ export function Navbar() {
 
         {/* Mobile Nav */}
         <div
+          id="mobile-nav"
+          role="region"
+          aria-label="Menú de navegación móvil"
           className={cn(
             "md:hidden overflow-hidden transition-all duration-300 ease-out",
             mobileOpen ? "max-h-80 opacity-100 pb-4" : "max-h-0 opacity-0"

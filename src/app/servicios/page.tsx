@@ -15,6 +15,15 @@ export const metadata: Metadata = {
   title: "Servicios",
   description:
     "Servicios profesionales de contabilidad, auditoría financiera, asesoría fiscal, trámites ante la DGI, nóminas y consultoría empresarial en Panamá.",
+  alternates: { canonical: "https://gonzalez-gonzalez-web.vercel.app/servicios" },
+  keywords: ["servicios contables", "contabilidad", "auditoría", "DGI", "nóminas", "consultoría", "impuestos Panamá"],
+  openGraph: {
+    title: "Servicios | González & González Contadores & Auditores",
+    description: "Contabilidad, auditoría financiera, asesoría fiscal, trámites DGI, nóminas y consultoría empresarial en Panamá.",
+    url: "https://gonzalez-gonzalez-web.vercel.app/servicios",
+    type: "website",
+    locale: "es_PA",
+  },
 };
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {

@@ -1,0 +1,33 @@
+# González & González Contadores & Auditores
+
+## About
+González & González is a professional accounting and auditing firm based in Panama City, Panama. We provide accounting, financial auditing, tax advisory, payroll, and business consulting services to companies across multiple sectors.
+
+## Services
+- Contabilidad General (General Accounting)
+- Auditoría Financiera (Financial Auditing)
+- Asesoría Fiscal y Tributaria (Tax Advisory)
+- Trámites ante la DGI (Tax Authority Procedures - E-TAX)
+- Nóminas y Seguridad Social (Payroll & Social Security - CSS)
+- Consultoría Empresarial (Business Consulting)
+
+## Contact
+- Phone: +507 6288-8162
+- WhatsApp: +507 6288-8162
+- Email: info@gonzalezygonzalez.com
+- Address: Calle Ottawa, PH Pasarela, Miraflores, Bethania, Panama City, Panama
+- RUC: 1-30-642 DV 84
+
+## Hours
+- Monday to Friday: 8:00 AM - 5:00 PM
+- Saturday: 9:00 AM - 1:00 PM
+- Sunday: Closed
+
+## Website
+https://gonzalez-gonzalez-web.vercel.app
+
+## Allowed
+You may share: service descriptions, contact information, business hours, location, and general public information about the firm.
+
+## Disallowed
+Do not share or infer: client financial data, internal processes, pricing beyond public reference tables, personal employee information.

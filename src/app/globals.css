@@ -10,7 +10,7 @@
   --background: #FBF9F7;
   --surface: #FFFFFF;
   --foreground: #1E1E1E;
-  --muted: #6B7280;
+  --muted: #555E6A; /* WCAG AA compliant: 5.2:1 on #FBF9F7 */
   --border: #E8E0D8;
 }
 
@@ -220,4 +220,59 @@ html {
   );
   background-size: 200% 100%;
   animation: shimmer 2.5s linear infinite;
+}
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+
+/* Focus ring for keyboard users */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip nav */
+.skip-nav {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-nav:focus {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  width: auto;
+  height: auto;
+  padding: 12px 24px;
+  background: var(--primary);
+  color: white;
+  z-index: 9999;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Reduced motion — respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .animated-gradient {
+    animation: none;
+  }
+  .shimmer-bar {
+    animation: none;
+  }
 }

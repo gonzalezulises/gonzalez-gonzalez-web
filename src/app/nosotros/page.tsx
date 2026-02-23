@@ -16,6 +16,15 @@ export const metadata: Metadata = {
   title: "Nosotros",
   description:
     "Conozca a González & González Contadores & Auditores. Nuestra historia, misión, visión y equipo de contadores públicos autorizados en Panamá.",
+  alternates: { canonical: "https://gonzalez-gonzalez-web.vercel.app/nosotros" },
+  keywords: ["sobre nosotros", "equipo contadores", "misión visión", "CPA Panamá", "historia despacho contable"],
+  openGraph: {
+    title: "Nosotros | González & González Contadores & Auditores",
+    description: "Historia, misión, visión y valores de González & González. Contadores Públicos Autorizados en Ciudad de Panamá.",
+    url: "https://gonzalez-gonzalez-web.vercel.app/nosotros",
+    type: "website",
+    locale: "es_PA",
+  },
 };
 
 const VALUES = [

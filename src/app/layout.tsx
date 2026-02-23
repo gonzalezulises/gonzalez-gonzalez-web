@@ -9,11 +9,15 @@ import "./globals.css";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+  fallback: ["system-ui", "Arial", "sans-serif"],
 });
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
+  display: "swap",
+  fallback: ["Georgia", "Times New Roman", "serif"],
 });
 
 const BASE_URL = "https://gonzalez-gonzalez-web.vercel.app";
@@ -21,24 +25,29 @@ const BASE_URL = "https://gonzalez-gonzalez-web.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "González & González | Contadores & Auditores",
-    template: "%s | González & González",
+    default: "González & González | Contadores & Auditores en Panamá",
+    template: "%s | González & González Contadores & Auditores",
   },
   description:
-    "Servicios profesionales de contabilidad, auditoría y asesoría fiscal en Panamá. Bethania, Miraflores, Ciudad de Panamá.",
+    "Servicios profesionales de contabilidad, auditoría financiera y asesoría fiscal en Ciudad de Panamá. Contadores Públicos Autorizados. Bethania, Miraflores.",
   keywords: [
     "contadores Panamá",
     "auditores Panamá",
-    "contabilidad",
+    "contabilidad Panamá",
     "auditoría financiera",
-    "asesoría fiscal",
+    "asesoría fiscal Panamá",
     "DGI Panamá",
     "CPA Panamá",
-    "González y González",
+    "González y González contadores",
     "contadores Bethania",
-    "servicios contables Panamá",
+    "servicios contables Ciudad de Panamá",
+    "trámites DGI E-TAX",
+    "nóminas CSS Panamá",
   ],
   authors: [{ name: "González & González Contadores & Auditores" }],
+  alternates: {
+    canonical: BASE_URL,
+  },
   openGraph: {
     type: "website",
     locale: "es_PA",
@@ -57,6 +66,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    "max-snippet": -1,
+    "max-image-preview": "large" as const,
+    "max-video-preview": -1,
   },
 };
 
@@ -70,9 +82,15 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} antialiased bg-background text-foreground`}
       >
+        {/* Skip navigation for accessibility */}
+        <a href="#main-content" className="skip-nav">
+          Ir al contenido principal
+        </a>
         <LocalBusinessJsonLd />
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main id="main-content" className="min-h-screen">
+          {children}
+        </main>
         <Footer />
         <WhatsAppButton />
       </body>

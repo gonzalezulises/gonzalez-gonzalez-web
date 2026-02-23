@@ -7,8 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: BASE_URL,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
+      changeFrequency: "weekly",
+      priority: 1.0,
     },
     {
       url: `${BASE_URL}/servicios`,
@@ -19,14 +19,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${BASE_URL}/nosotros`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
+      changeFrequency: "yearly",
+      priority: 0.7,
     },
     {
       url: `${BASE_URL}/contacto`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
+      changeFrequency: "yearly",
+      priority: 0.6,
     },
   ];
 }
