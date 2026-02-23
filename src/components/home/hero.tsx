@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck, MessageCircle } from "lucide-react";
 import { BUSINESS, STATS } from "@/lib/constants";
@@ -5,8 +6,19 @@ import { BUSINESS, STATS } from "@/lib/constants";
 export function Hero() {
   return (
     <section className="relative overflow-hidden grain">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 animated-gradient bg-gradient-to-br from-primary via-primary-light to-secondary" />
+      {/* Background image */}
+      <Image
+        src="/hero-bg.jpg"
+        alt=""
+        fill
+        priority
+        className="object-cover"
+        sizes="100vw"
+        quality={85}
+      />
+
+      {/* Dark overlay with brand gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary-light/85 to-secondary/80" />
 
       {/* Floating accent orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
