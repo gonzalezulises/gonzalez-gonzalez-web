@@ -40,10 +40,18 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="flex flex-col">
-              <span className="font-serif text-lg font-bold text-primary leading-tight group-hover:text-primary-light transition-colors">
+              <span className={cn(
+                "font-serif text-lg font-bold leading-tight transition-colors",
+                scrolled
+                  ? "text-primary group-hover:text-primary-light"
+                  : "text-white group-hover:text-white/80"
+              )}>
                 {BUSINESS.name}
               </span>
-              <span className="text-[10px] tracking-[0.2em] text-secondary/70 uppercase">
+              <span className={cn(
+                "text-[10px] tracking-[0.2em] uppercase transition-colors",
+                scrolled ? "text-secondary/70" : "text-white/60"
+              )}>
                 {BUSINESS.tagline}
               </span>
             </div>
@@ -57,20 +65,32 @@ export function Navbar() {
                 href={link.href}
                 className={cn(
                   "relative px-4 py-2 text-sm font-medium rounded-lg transition-all",
-                  pathname === link.href
-                    ? "text-primary bg-primary/[0.06]"
-                    : "text-muted hover:text-primary hover:bg-primary/[0.04]"
+                  scrolled
+                    ? pathname === link.href
+                      ? "text-primary bg-primary/[0.06]"
+                      : "text-muted hover:text-primary hover:bg-primary/[0.04]"
+                    : pathname === link.href
+                      ? "text-white bg-white/10"
+                      : "text-white/80 hover:text-white hover:bg-white/10"
                 )}
               >
                 {link.label}
                 {pathname === link.href && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 rounded-full bg-primary" />
+                  <span className={cn(
+                    "absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 rounded-full",
+                    scrolled ? "bg-primary" : "bg-white"
+                  )} />
                 )}
               </Link>
             ))}
             <Link
               href="/contacto"
-              className="group ml-4 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-primary-light hover:shadow-md hover:shadow-primary/20"
+              className={cn(
+                "group ml-4 inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-medium transition-all",
+                scrolled
+                  ? "bg-primary text-white hover:bg-primary-light hover:shadow-md hover:shadow-primary/20"
+                  : "bg-white/15 text-white backdrop-blur-sm border border-white/20 hover:bg-white/25"
+              )}
             >
               Contáctenos
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -80,7 +100,12 @@ export function Navbar() {
           {/* Mobile Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-lg text-foreground hover:bg-primary/5 transition-colors"
+            className={cn(
+              "md:hidden p-2 rounded-lg transition-colors",
+              scrolled
+                ? "text-foreground hover:bg-primary/5"
+                : "text-white hover:bg-white/10"
+            )}
             aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
