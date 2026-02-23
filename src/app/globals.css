@@ -31,6 +31,9 @@
   --animate-fade-up: fade-up 0.6s ease-out both;
   --animate-fade-up-delay: fade-up 0.6s ease-out 0.15s both;
   --animate-scale-in: scale-in 0.5s ease-out both;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s linear infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
 }
 
 body {
@@ -43,12 +46,14 @@ h1, h2, h3, h4 {
   font-family: var(--font-serif), Georgia, "Times New Roman", serif;
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Animations */
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -64,11 +69,41 @@ html {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* Scroll reveal - elements start hidden, animate when .visible */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes counter {
+  from { --num: 0; }
+  to { --num: var(--target); }
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.visible {
@@ -76,10 +111,113 @@ html {
   transform: translateY(0);
 }
 
-/* Stagger children */
 .reveal-stagger > .reveal:nth-child(1) { transition-delay: 0s; }
 .reveal-stagger > .reveal:nth-child(2) { transition-delay: 0.1s; }
-.reveal-stagger > .reveal:nth-child(3) { transition-delay: 0.2s; }
-.reveal-stagger > .reveal:nth-child(4) { transition-delay: 0.3s; }
-.reveal-stagger > .reveal:nth-child(5) { transition-delay: 0.4s; }
-.reveal-stagger > .reveal:nth-child(6) { transition-delay: 0.5s; }
+.reveal-stagger > .reveal:nth-child(3) { transition-delay: 0.15s; }
+.reveal-stagger > .reveal:nth-child(4) { transition-delay: 0.2s; }
+.reveal-stagger > .reveal:nth-child(5) { transition-delay: 0.25s; }
+.reveal-stagger > .reveal:nth-child(6) { transition-delay: 0.3s; }
+
+/* ============================================================
+   GLASS & SURFACES — 2026 design patterns
+   ============================================================ */
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(78, 43, 21, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* Subtle noise overlay for premium texture */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* Animated gradient background for hero */
+.animated-gradient {
+  background-size: 300% 300%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Gradient text effect */
+.text-gradient {
+  background: linear-gradient(135deg, var(--secondary-light), var(--accent), var(--secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glow ring for interactive elements */
+.glow-ring {
+  transition: box-shadow 0.3s ease;
+}
+.glow-ring:hover {
+  box-shadow: 0 0 0 4px rgba(139, 90, 44, 0.12), 0 8px 30px rgba(78, 43, 21, 0.1);
+}
+
+/* Card lift effect */
+.card-lift {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(78, 43, 21, 0.12),
+              0 8px 16px -8px rgba(78, 43, 21, 0.08);
+}
+
+/* Gradient border */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--secondary-light), transparent, var(--accent));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* Section divider */
+.section-line {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  border-radius: 2px;
+}
+
+/* Shimmer loading / accent bar */
+.shimmer-bar {
+  background: linear-gradient(
+    90deg,
+    var(--secondary) 0%,
+    var(--accent) 50%,
+    var(--secondary) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}

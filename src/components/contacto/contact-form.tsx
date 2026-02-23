@@ -6,7 +6,7 @@ import { SERVICES } from "@/lib/constants";
 import { sendContactEmail } from "@/app/contacto/action";
 
 const inputClass =
-  "w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors";
+  "w-full rounded-xl border border-border bg-surface px-4 py-3.5 text-sm text-foreground placeholder:text-muted/40 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40 transition-all duration-200";
 
 export function ContactForm() {
   const [state, formAction, isPending] = useActionState(sendContactEmail, {
@@ -92,7 +92,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isPending}
-        className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary text-white px-8 py-4 text-base font-semibold hover:bg-primary-light transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+        className="group inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-white px-8 py-4 text-base font-semibold hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/20 disabled:opacity-60 disabled:cursor-not-allowed active:scale-[0.98]"
       >
         {isPending ? (
           <>

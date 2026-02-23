@@ -17,7 +17,8 @@ export const BUSINESS = {
     country: "Panamá",
     full: "Calle Ottawa, PH Pasarela, Miraflores, Bethania, Ciudad de Panamá",
   },
-  phone: "+507 0000-0000", // TODO: confirmar teléfono
+  phone: "+507 6288-8162",
+  whatsapp: "5076288162",
   email: "info@gonzalezygonzalez.com", // TODO: confirmar email
   schedule: {
     weekdays: "Lunes a Viernes: 8:00 AM - 5:00 PM",

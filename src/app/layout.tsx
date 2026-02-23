@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 import { LocalBusinessJsonLd } from "@/components/seo/json-ld";
 import "./globals.css";
 
@@ -73,6 +74,7 @@ export default function RootLayout({
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

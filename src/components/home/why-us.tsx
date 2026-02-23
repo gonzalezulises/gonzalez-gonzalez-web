@@ -11,57 +11,64 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export function WhyUs() {
   return (
-    <section className="py-20 sm:py-28 bg-primary/[0.03]">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section className="py-24 sm:py-32 relative overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/[0.02] to-background" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Left side - text */}
           <ScrollReveal>
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-secondary mb-3">
-                ¿Por qué elegirnos?
-              </p>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                Confianza y profesionalismo en cada servicio
+              <div className="section-line mb-6" />
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
+                Confianza y profesionalismo en{" "}
+                <span className="text-gradient bg-clip-text" style={{ WebkitTextFillColor: "transparent", backgroundImage: "linear-gradient(135deg, #8B5A2C, #B8860B)" }}>
+                  cada servicio
+                </span>
               </h2>
-              <p className="text-muted leading-relaxed mb-8">
-                En González &amp; González nos distinguimos por ofrecer un servicio
-                contable y de auditoría con los más altos estándares profesionales.
-                Nuestro compromiso es ser el aliado financiero que su empresa
-                necesita.
+              <p className="text-muted text-lg leading-relaxed mb-10">
+                En González &amp; González nos distinguimos por ofrecer un
+                servicio contable y de auditoría con los más altos estándares
+                profesionales. Nuestro compromiso es ser el aliado financiero
+                que su empresa necesita.
               </p>
 
-              {/* Stats inline */}
-              <div className="flex gap-8">
-                <div>
-                  <p className="font-serif text-3xl font-bold text-primary">12+</p>
-                  <p className="text-sm text-muted">Clientes activos</p>
-                </div>
-                <div>
-                  <p className="font-serif text-3xl font-bold text-primary">CPA</p>
-                  <p className="text-sm text-muted">Autorizados</p>
-                </div>
-                <div>
-                  <p className="font-serif text-3xl font-bold text-primary">100%</p>
-                  <p className="text-sm text-muted">Compromiso</p>
-                </div>
+              {/* Stats row */}
+              <div className="flex gap-10">
+                {[
+                  { value: "12+", label: "Clientes" },
+                  { value: "CPA", label: "Autorizados" },
+                  { value: "100%", label: "Compromiso" },
+                ].map((s, i) => (
+                  <div key={i} className="relative">
+                    <p className="font-serif text-4xl font-bold text-primary">
+                      {s.value}
+                    </p>
+                    <p className="text-sm text-muted mt-1">{s.label}</p>
+                    {i < 2 && (
+                      <div className="absolute top-0 -right-5 h-full w-px bg-border hidden sm:block" />
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
           </ScrollReveal>
 
           {/* Right side - cards */}
           <ScrollReveal stagger>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {WHY_US.map((item, i) => {
                 const Icon = iconMap[item.icon];
                 return (
                   <div
                     key={i}
-                    className="reveal rounded-2xl bg-surface border border-border p-6 hover:shadow-md transition-shadow"
+                    className="reveal gradient-border rounded-2xl bg-surface p-6 card-lift border border-border"
                   >
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-secondary/10 text-secondary mb-4">
-                      {Icon && <Icon className="h-6 w-6" />}
+                    <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-secondary/10 to-accent/10 text-secondary mb-4">
+                      {Icon && <Icon className="h-5 w-5" />}
                     </div>
-                    <h3 className="font-semibold text-foreground mb-2">
+                    <h3 className="font-semibold text-foreground mb-2 text-[15px]">
                       {item.title}
                     </h3>
                     <p className="text-sm text-muted leading-relaxed">
