@@ -19,7 +19,7 @@ export const BUSINESS = {
   },
   phone: "+507 6288-8162",
   whatsapp: "5076288162",
-  email: "info@gonzalezygonzalez.com", // TODO: confirmar email
+  email: "info@gonzalezcontadores.com",
   schedule: {
     weekdays: "Lunes a Viernes: 8:00 AM - 5:00 PM",
     saturday: "Sábado: 9:00 AM - 1:00 PM",

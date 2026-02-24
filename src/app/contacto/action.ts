@@ -103,7 +103,7 @@ export async function sendContactEmail(
 
     await resend.emails.send({
       from: `González & González Web <${process.env.RESEND_FROM || "onboarding@resend.dev"}>`,
-      to: process.env.CONTACT_EMAIL || "info@gonzalezygonzalez.com",
+      to: process.env.CONTACT_EMAIL || "info@gonzalezcontadores.com",
       replyTo: email,
       subject: `Nuevo contacto: ${safe.name} - ${safe.service}`,
       html: `
